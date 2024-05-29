@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.0 on win32)" generated="2024-05-29T02:49:42.801297" rpa="false" schemaversion="5">
+<suite id="s1" name="Add-Item" source="C:\Users\suchi\PycharmProjects\pythonProject1\TestCases\add-item.robot">
+<test id="s1-t1" name="Add, Complete, and Delete Task From Completed List" line="11">
+<kw name="Open To-Do List Application" owner="shared" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:42.932377" level="INFO">Opening browser 'Chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-29T02:49:42.932377" elapsed="1.668662"/>
+</kw>
+<doc>Open the To-Do List application in the specified browser.</doc>
+<status status="PASS" start="2024-05-29T02:49:42.931336" elapsed="1.669703"/>
+</kw>
+<kw name="Add Task To To-Do List" owner="shared">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:44.602050" level="INFO">Typing text 'Complete Task A' into text field 'id=new-task'.</msg>
+<arg>id=new-task</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.602050" elapsed="0.087051"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:44.690103" level="INFO">Clicking element 'css=.mdl-button'.</msg>
+<arg>css=.mdl-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.689101" elapsed="0.031001"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:44.721102" level="INFO">Clicking link 'xpath=//a[@href='#todo']'.</msg>
+<arg>xpath=//a[@href='#todo']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.720102" elapsed="0.039476"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:44.777578" level="INFO">Element 'xpath=//*[@id="text-1"]' contains text 'Complete Task A'.</msg>
+<arg>xpath=//*[@id="text-1"]</arg>
+<arg>${task}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.759578" elapsed="0.018000"/>
+</kw>
+<arg>${task_1}</arg>
+<doc>Add a task to the to-do list.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.602050" elapsed="0.175528"/>
+</kw>
+<kw name="Complete Task" owner="shared">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:44.778579" level="INFO">Clicking element 'xpath=//*[@id="text-1"]'.</msg>
+<arg>xpath=//*[@id="text-1"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.778579" elapsed="0.029807"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:44.809396" level="INFO">Clicking link 'xpath=//a[@href='#completed']'.</msg>
+<arg>xpath=//a[@href='#completed']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.809396" elapsed="0.030994"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:44.853899" level="INFO">Element 'xpath=//*[@id="completed-tasks"]/li/span/i' contains text 'done'.</msg>
+<arg>xpath=//*[@id="completed-tasks"]/li/span/i</arg>
+<arg>done</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.840390" elapsed="0.013509"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:44.865899" level="INFO">Element 'xpath=//*[@id="completed-tasks"]/li[1]/span' contains text 'Complete Task A'.</msg>
+<arg>xpath=//*[@id="completed-tasks"]/li[1]/span</arg>
+<arg>${task}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.853899" elapsed="0.012000"/>
+</kw>
+<arg>${task_1}</arg>
+<doc>Click the checkbox for the task to complete it.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.778579" elapsed="0.087320"/>
+</kw>
+<kw name="Delete Task From Completed List" owner="shared">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:44.866899" level="INFO">Clicking element 'xpath=//button[contains(text(),'Delete')]'.</msg>
+<arg>xpath=//button[contains(text(),'Delete')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.866899" elapsed="0.027000"/>
+</kw>
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:44.902899" level="INFO">Element 'xpath=//*[@id="completed-tasks"]/li[1]/span[contains(text(), 'Complete Task A')]' did not exist.</msg>
+<arg>xpath=//*[@id="completed-tasks"]/li[1]/span[contains(text(), '${task}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.894909" elapsed="0.007990"/>
+</kw>
+<arg>${task_1}</arg>
+<doc>Delete a task from the Completed List.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.866899" elapsed="0.036000"/>
+</kw>
+<kw name="Close Application" owner="shared" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.903898" elapsed="2.111226"/>
+</kw>
+<doc>Close the browser.</doc>
+<status status="PASS" start="2024-05-29T02:49:44.903898" elapsed="2.111226"/>
+</kw>
+<doc>Add a task to the to-do list, mark it as completed, and then delete it from the Completed List.</doc>
+<status status="PASS" start="2024-05-29T02:49:42.931336" elapsed="4.084946"/>
+</test>
+<test id="s1-t2" name="Add and Delete Task From To-Do List" line="17">
+<kw name="Open To-Do List Application" owner="shared" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:47.021295" level="INFO">Opening browser 'Chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-29T02:49:47.019290" elapsed="1.563323"/>
+</kw>
+<doc>Open the To-Do List application in the specified browser.</doc>
+<status status="PASS" start="2024-05-29T02:49:47.019290" elapsed="1.563323"/>
+</kw>
+<kw name="Add Task To To-Do List" owner="shared">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:48.583614" level="INFO">Typing text 'Complete Task B' into text field 'id=new-task'.</msg>
+<arg>id=new-task</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T02:49:48.583614" elapsed="0.079009"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:48.663641" level="INFO">Clicking element 'css=.mdl-button'.</msg>
+<arg>css=.mdl-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T02:49:48.662623" elapsed="0.032767"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:48.695390" level="INFO">Clicking link 'xpath=//a[@href='#todo']'.</msg>
+<arg>xpath=//a[@href='#todo']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T02:49:48.695390" elapsed="0.039744"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:48.756464" level="INFO">Element 'xpath=//*[@id="text-1"]' contains text 'Complete Task B'.</msg>
+<arg>xpath=//*[@id="text-1"]</arg>
+<arg>${task}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-05-29T02:49:48.735134" elapsed="0.021330"/>
+</kw>
+<arg>${task_2}</arg>
+<doc>Add a task to the to-do list.</doc>
+<status status="PASS" start="2024-05-29T02:49:48.583614" elapsed="0.172850"/>
+</kw>
+<kw name="Delete Task From To-Do List" owner="shared">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:48.757473" level="INFO">Clicking element 'css=.delete'.</msg>
+<arg>css=.delete</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T02:49:48.757473" elapsed="0.028430"/>
+</kw>
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-29T02:49:48.792981" level="INFO">Element 'xpath=//*[@id="completed-tasks"]/li/span/i[contains(text(), 'Complete Task B')]' did not exist.</msg>
+<arg>xpath=//*[@id="completed-tasks"]/li/span/i[contains(text(), '${task}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2024-05-29T02:49:48.785903" elapsed="0.007078"/>
+</kw>
+<arg>${task_2}</arg>
+<doc>Delete a task from the To-Do List.</doc>
+<status status="PASS" start="2024-05-29T02:49:48.756464" elapsed="0.036517"/>
+</kw>
+<kw name="Close Application" owner="shared" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-29T02:49:48.793944" elapsed="2.121448"/>
+</kw>
+<doc>Close the browser.</doc>
+<status status="PASS" start="2024-05-29T02:49:48.793944" elapsed="2.121448"/>
+</kw>
+<doc>Add a task to the to-do list and then delete it.</doc>
+<status status="PASS" start="2024-05-29T02:49:47.018291" elapsed="3.898195"/>
+</test>
+<status status="PASS" start="2024-05-29T02:49:42.802331" elapsed="8.117219"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Add-Item">Add-Item</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
